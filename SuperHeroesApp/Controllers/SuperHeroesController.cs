@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SuperHeroesApp.Data;
 using SuperHeroesApp.Models;
 
@@ -119,6 +120,8 @@ namespace SuperHeroesApp.Controllers
             
             try
             {
+                _context.SuperHeroes.Remove(superhero);
+                _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
