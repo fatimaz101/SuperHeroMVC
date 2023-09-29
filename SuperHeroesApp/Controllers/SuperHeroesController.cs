@@ -44,6 +44,9 @@ namespace SuperHeroesApp.Controllers
         // GET: SuperHeroesController/Create
         public ActionResult Create()
         {
+
+
+
             return View();
         }
 
@@ -55,7 +58,13 @@ namespace SuperHeroesApp.Controllers
             //linq quiery to add the superhero into the database
             try
             {
+                _context.SuperHeroes.Add(superhero);
+                _context.SaveChanges();
+
+                
+
                 return RedirectToAction(nameof(Index));
+               
             }
             catch
             {
@@ -78,7 +87,16 @@ namespace SuperHeroesApp.Controllers
             //linq quiery to update the ifo into the database
             try
             {
+
+                _context.SuperHeroes.Update(superhero);
+                _context.SaveChanges();
+
+
                 return RedirectToAction(nameof(Index));
+
+
+
+
             }
             catch
             {
