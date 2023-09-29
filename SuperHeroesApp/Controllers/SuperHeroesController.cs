@@ -34,7 +34,11 @@ namespace SuperHeroesApp.Controllers
 
         {
             // linq queirys to find specfics row from table
-            return View();
+
+            var superHero = _context.SuperHeroes.Where(ur => ur.Id == id).FirstOrDefault(); ;
+                
+
+            return View(superHero);
         }
 
         // GET: SuperHeroesController/Create
